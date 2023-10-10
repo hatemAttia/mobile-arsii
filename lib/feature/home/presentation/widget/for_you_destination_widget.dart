@@ -34,7 +34,7 @@ class ForYouDestinationWidget extends StatelessWidget {
               children: [
                 Container(
                   height: 120,
-                  width: 180,
+                  width: MediaQuery.of(context).size.width*0.3,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: DecorationImage(
@@ -46,47 +46,49 @@ class ForYouDestinationWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      specialForYou[index].name,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Icon(
-                          Icons.place,
-                          color: Colors.red,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(specialForYou[index].location),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    RichText(
-                      text: TextSpan(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        specialForYou[index].name,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          TextSpan(
-                            text: "",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall
-                                ?.copyWith(
-                                  color: AppColor.primaryColor,
-                                ),
+                          const Icon(
+                            Icons.place,
+                            color: Colors.red,
                           ),
-                          TextSpan(
-                            text: "",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          const SizedBox(width: 8),
+                          Flexible(child: Text(specialForYou[index].location,overflow: TextOverflow.ellipsis,)),
                         ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(
+                                    color: AppColor.primaryColor,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: "",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

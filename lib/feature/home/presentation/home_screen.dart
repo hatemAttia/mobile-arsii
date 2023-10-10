@@ -25,24 +25,19 @@ class HomeScreen extends StatelessWidget {
   @override
   
   Widget build(BuildContext context) {
-    return Scaffold(
-       
-      key: _globalKey,
-      backgroundColor: Colors.grey[50],
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.symmetric(vertical: 24),
+    return SafeArea(
+      child: Scaffold(
+        key: _globalKey,
+        backgroundColor: Colors.grey[50],
+        body: SingleChildScrollView(
+          // physics: const BouncingScrollPhysics(),
+          // padding: const EdgeInsets.symmetric(vertical: 24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Row(
-                  children: [
-                   Padding(
-                padding: const EdgeInsets.only(top: 80, left: 5, right: 5),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -55,33 +50,40 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.black,
                         )),
                   ],
-              ),
-                           
-              
-                  
-
-                     // decoration: BoxDecoration(
-                       //// image: const DecorationImage(
-///image: AssetImage(
-//"assets/amira.jpg",
-                         // ),
-                        
-                        ),
-                         
-//shape: BoxShape.circle,
-                       // border: Border.all(),
-                        
-                     
-                    const SizedBox(width: 16),
-                    
-                    const Expanded(child: SizedBox()),
-                   // const Icon(
-                     // Icons.notifications_none_rounded,
-                     // size: 32,
-                    //),
-                  ],
                 ),
               ),
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 24),
+//                 child: Row(
+//                   children: [
+//                    Row(
+//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                      children: [
+//                        IconButton(
+//                            onPressed: () {
+//                              _globalKey.currentState!.openDrawer();
+//                            },
+//                            icon: const Icon(
+//                              Icons.menu,
+//                              color: Colors.black,
+//                            )),
+//                      ],
+//               ),
+//
+// //shape: BoxShape.circle,
+//                        // border: Border.all(),
+//
+//
+//                     const SizedBox(width: 16),
+//
+//                     const Expanded(child: SizedBox()),
+//                    // const Icon(
+//                      // Icons.notifications_none_rounded,
+//                      // size: 32,
+//                     //),
+//                   ],
+//                 ),
+//               ),
               Container(
                 height: 56,
                 width: MediaQuery.of(context).size.width - 48,
@@ -90,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                margin: const EdgeInsets.all(24),
+                margin: const EdgeInsets.only(left: 24,right: 24,bottom: 10),
                 alignment: Alignment.center,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -98,9 +100,12 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const Icon(CupertinoIcons.search),
                     const SizedBox(width: 8),
-                    Text(
-                      "Recherche une Activité, événement,Opportunités, etc.",
-                      style: Theme.of(context).textTheme.bodySmall,
+                    Flexible(
+                      child: Text(
+                        "Recherche une Activité, événement,Opportunités, etc.",
+                        style: Theme.of(context).textTheme.bodySmall,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 ),
@@ -155,8 +160,8 @@ class HomeScreen extends StatelessWidget {
                         color: AppColor.primarySwatch[100],
                       ),
                       alignment: Alignment.center,
-            
-                      child: 
+
+                      child:
                       Text(
                         "Les Formations",
                         style: Theme.of(context)
@@ -205,98 +210,106 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      drawer: Drawer(
-        width: 275,
-        elevation: 30,
-        backgroundColor: Color(0xF3393838),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.horizontal(right: Radius.circular(40))),
-           
-        child: Container(
-          decoration: const BoxDecoration(
-              
-              borderRadius: BorderRadius.horizontal(right: Radius.circular(40)),
-              boxShadow: [
-                BoxShadow(
-                    color: Color(0x3D000000), spreadRadius: 30, blurRadius: 20)
-              ]),
-          child: const Padding(
-            padding: EdgeInsets.fromLTRB(20, 50, 20, 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 56,
-                        ),
-                        Text(
-                          'Settings',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        UserAvatar(filename: 'amira.jpg'),
+        drawer: Drawer(
+          width: 275,
+          elevation: 30,
+          backgroundColor: Color(0xF3393838),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.horizontal(right: Radius.circular(40))),
+             
+          child: Container(
+            decoration: const BoxDecoration(
+                
+                borderRadius: BorderRadius.horizontal(right: Radius.circular(40)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0x3D000000), spreadRadius: 30, blurRadius: 20)
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 56,
+                          ),
+                          Text(
+                            'Settings',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const Row(
+                        children: [
+                          UserAvatar(filename: 'amira.jpg'),
+                          
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Text(
+                            'Amira',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 35,
+                      ),
+                      const DrawerItem(
+                        title: 'Account',
+                        icon: Icons.key,index: 1,
                         
-                        SizedBox(
-                          width: 12,
-                        ),
-                        Text(
-                          'Amira',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    ),
-                    
+                      ),
+                      InkWell(
+                        onTap: (){
 
-                    SizedBox(
-                      height: 35,
-                    ),
-                   
-                   
-                    DrawerItem(
-                      title: 'Account',
-                      icon: Icons.key,index: 1,
-                      
-                    ),
-                                          
-                    DrawerItem(title: 'Chats', icon: Icons.chat_bubble,index: 2, ),
-                    
-                  
-                    DrawerItem(
-                        title: 'Notifications', icon: Icons.notifications,index: 3,),
-                    DrawerItem(
-                        title: 'Data and Storage', icon: Icons.storage,index: 4,),
-                    DrawerItem(title: 'Help', icon: Icons.help,index:5 ,),
-                    Divider(
-                      height: 35,
-                      color: Colors.green,
-                    ),
-                    DrawerItem(
-                        title: 'Invite a friend', icon: Icons.people_outline,index: 6,),
-                  ],
-                ),
-                DrawerItem(title: 'Log out', icon: Icons.logout,index: 7,)
-              ],
+                          Navigator.push ( context, MaterialPageRoute (builder: (context) => const MobileLayoutScreen()));
+
+                        },
+                          child: const DrawerItem(title: 'Chats', icon: Icons.chat_bubble,index: 2, )
+                      ),
+
+
+                      InkWell(
+                        onTap: (){
+                        //CHANGE THE MobileLayoutScreen WITH THE CORRECT METHOD
+                          Navigator.push ( context, MaterialPageRoute (builder: (context) => const MobileLayoutScreen()));
+
+                        },
+                        child: const DrawerItem(
+                            title: 'Notifications', icon: Icons.notifications,index: 3,),
+                      ),
+                      const DrawerItem(
+                          title: 'Data and Storage', icon: Icons.storage,index: 4,),
+                      const DrawerItem(title: 'Help', icon: Icons.help,index:5 ,),
+                      const Divider(
+                        height: 35,
+                        color: Colors.green,
+                      ),
+                      const DrawerItem(
+                          title: 'Invite a friend', icon: Icons.people_outline,index: 6,),
+                    ],
+                  ),
+                  const DrawerItem(title: 'Log out', icon: Icons.logout,index: 7,)
+                ],
+              ),
             ),
           ),
         ),
+        
       ),
-      
     );
   }
 }
@@ -410,27 +423,24 @@ class DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     
     
-    return InkWell(
-      
-    onTap: () { Navigator.push ( context, MaterialPageRoute (builder: (context) => const MobileLayoutScreen()));},
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 25),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: Colors.white,
-              size: 20,
-            ),
-            const SizedBox(
-              width: 40,
-            ),
-            Text(
-              title,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
-            ),
-          ],
-        ),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 25),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+            size: 20,
+          ),
+          const SizedBox(
+            width: 40,
+          ),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 16),
+          ),
+        ],
       ),
     );
 

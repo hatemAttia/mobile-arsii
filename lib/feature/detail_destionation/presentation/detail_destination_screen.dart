@@ -118,10 +118,12 @@ class DetailDestinationScreen extends StatelessWidget {
                                       .toList(),
                                 ),
                                 const SizedBox(width: 8),
-                                TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    "see what they say.",
+                                Expanded(
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: const Text(
+                                      "see what they say.",
+                                    ),
                                   ),
                                 )
                               ],
