@@ -1,0 +1,100 @@
+import 'package:flutter/material.dart';
+import 'package:arsi/core/route/app_route_name.dart';
+import 'package:arsi/core/theme/app_color.dart';
+import 'package:arsi/feature/home/model/place.dart';
+
+class ForYouDestinationWidget extends StatelessWidget {
+  const ForYouDestinationWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: specialForYou.length,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              AppRouteName.detailDestination,
+              arguments: specialForYou[index],
+            );
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width - 48,
+            margin: const EdgeInsets.only(bottom: 8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width*0.3,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        specialForYou[index].asset,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        specialForYou[index].name,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            Icons.place,
+                            color: Colors.red,
+                          ),
+                          const SizedBox(width: 8),
+                          Flexible(child: Text(specialForYou[index].location,overflow: TextOverflow.ellipsis,)),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(
+                                    color: AppColor.primaryColor,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: "",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
