@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 import 'package:arsi/core/route/colors.dart';
 import 'package:arsi/feature/profile/edit_profile.dart';
 import 'package:arsi/feature/screens/mobile_layout_screen.dart';
@@ -9,20 +10,32 @@ import 'package:arsi/taps/profile_tap.dart';
 import 'package:arsi/taps/scan_tap.dart';
 import 'package:arsi/taps/upload_tap.dart';
 
+=======
+import 'package:arsi/feature/profile/edit_profile.dart';
+import 'package:arsi/feature/screens/mobile_layout_screen.dart';
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:arsi/core/theme/app_color.dart';
 import 'package:arsi/feature/home/presentation/widget/for_you_destination_widget.dart';
 import 'package:arsi/feature/home/presentation/widget/popular_destination_widget.dart';
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+=======
+
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
 
 
 final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
 
  
 class HomeScreen extends StatelessWidget {
+<<<<<<< HEAD
    
+=======
+  
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
   
    const HomeScreen({super.key, required this.title});
 
@@ -38,8 +51,12 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         key: _globalKey,
         backgroundColor: Colors.grey[50],
+<<<<<<< HEAD
         body: 
         SingleChildScrollView(
+=======
+        body: SingleChildScrollView(
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
           // physics: const BouncingScrollPhysics(),
           // padding: const EdgeInsets.symmetric(vertical: 24),
           child: Column(
@@ -62,7 +79,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+<<<<<<< HEAD
             
+=======
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
 //               Padding(
 //                 padding: const EdgeInsets.symmetric(horizontal: 24),
 //                 child: Row(
@@ -278,6 +298,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 35,
                       ),
+<<<<<<< HEAD
                        InkWell(
                         onTap: (){
                         //CHANGE THE MobileLayoutScreen WITH THE CORRECT METHOD
@@ -285,11 +306,17 @@ class HomeScreen extends StatelessWidget {
 
                         },
                       child: const DrawerItem(
+=======
+                      const DrawerItem(
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
                         title: 'Account',
                         icon: Icons.key,index: 1,
                         
                       ),
+<<<<<<< HEAD
                        ),
+=======
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
                       InkWell(
                         onTap: (){
 
@@ -303,12 +330,17 @@ class HomeScreen extends StatelessWidget {
                       InkWell(
                         onTap: (){
                         //CHANGE THE MobileLayoutScreen WITH THE CORRECT METHOD
+<<<<<<< HEAD
                           Navigator.push ( context, MaterialPageRoute (builder: (context) => NotitcationTap()));
+=======
+                          Navigator.push ( context, MaterialPageRoute (builder: (context) => const MobileLayoutScreen()));
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
 
                         },
                         child: const DrawerItem(
                             title: 'Notifications', icon: Icons.notifications,index: 3,),
                       ),
+<<<<<<< HEAD
 
                         InkWell(
                         onTap: (){
@@ -318,6 +350,10 @@ class HomeScreen extends StatelessWidget {
                         },
                         child:const DrawerItem(
                           title: 'Data and Storage', icon: Icons.storage,index: 4,),),
+=======
+                      const DrawerItem(
+                          title: 'Data and Storage', icon: Icons.storage,index: 4,),
+>>>>>>> bdf7f0698e62a9b6ce61f1dee72c6e752a3c1c93
                       const DrawerItem(title: 'Help', icon: Icons.help,index:5 ,),
                       const Divider(
                         height: 35,
